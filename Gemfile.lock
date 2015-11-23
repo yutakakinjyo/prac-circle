@@ -5,6 +5,7 @@ GEM
       rest-client (~> 1.6)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.0.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     mime-types (2.99)
@@ -22,6 +23,7 @@ PLATFORMS
 
 DEPENDENCIES
   circleci
+  dotenv
 
 BUNDLED WITH
    1.10.6
