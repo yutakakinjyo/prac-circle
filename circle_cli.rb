@@ -8,7 +8,7 @@ CircleCi.configure do |config|
   config.token = ENV['CIRCLE_CI_TOKEN']
 end
 
-today = DateTime.now.prev_day
+today = DateTime.now
 build_sum = 0
 
 res = CircleCi.organization ARGV[0]
