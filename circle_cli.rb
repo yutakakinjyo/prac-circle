@@ -8,14 +8,15 @@ CircleCi.configure do |config|
   config.token = ENV['CIRCLE_CI_TOKEN']
 end
 
-today = DateTime.now
+today = DateTime.now.prev_day
 build_sum = 0
 
 res = CircleCi.organization ARGV[0]
-res.body.each do |info|
-  next unless info["start_time"]
-  if DateTime.parse(info["start_time"]).to_date == today.to_date
-    build_sum += info["build_time_millis"] if info["build_time_millis"]
+res.body.each do |hash|
+  info = OpenStruct.new(hash)
+  next unless info.start_time
+  if DateTime.parse(info.start_time).to_date == today.to_date
+    build_sum += info.build_time_millis if info.build_time_millis
   end
 end
 
