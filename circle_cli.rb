@@ -23,7 +23,7 @@ end
 
 def this_month?(date)
   current = DateTime.parse(date).new_offset(Rational(9, 24)).to_date
-  DateTime.now.prev_month.end_of_month.to_date < current && current  < DateTime.now.next_month.beginning_of_month.to_date
+  DateTime.now.beginning_of_month.to_date <= current && current  < DateTime.now.end_of_month.to_date
 end
 
 Dotenv.load
